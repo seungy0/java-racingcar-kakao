@@ -16,4 +16,15 @@ public class RacingCars {
     public List<RacingCar> getRacingCars() {
         return racingCars;
     }
+
+    public List<RacingCar> getWinners() {
+        int maxMoves = racingCars.stream()
+            .mapToInt(RacingCar::getMoves)
+            .max()
+            .orElse(0);
+
+        return racingCars.stream()
+            .filter(car -> car.getMoves() == maxMoves)
+            .collect(Collectors.toList());
+    }
 }

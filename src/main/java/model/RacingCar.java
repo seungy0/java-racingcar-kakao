@@ -14,14 +14,18 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void getNumAndMove() {
-        int num = getRandomNum();
-        if (move(num)) {
+    public void getNumAndMove(int num) {
+        if (moveOrNot(num)) {
             this.moves++;
         }
     }
 
-    public boolean move(int num) {
+    public void move() {
+        int num = getRandomNum();
+        getNumAndMove(num);
+    }
+
+    public boolean moveOrNot(int num) {
         return num >= 4 && num <= 9;
     }
 

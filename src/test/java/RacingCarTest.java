@@ -1,4 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
 import model.RacingCar;
+import model.RacingCars;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,16 +18,32 @@ public class RacingCarTest {
     @Test
     void moveTest() {
         for (int i = 4; i < 10; i++) {
-            boolean move = racingCar.move(i);
-            Assertions.assertTrue(move);
+            boolean moveOrNot = racingCar.moveOrNot(i);
+            Assertions.assertTrue(moveOrNot);
         }
     }
 
     @Test
     void stopTest() {
         for (int i = 0; i < 4; i++) {
-            boolean move = racingCar.move(i);
-            Assertions.assertFalse(move);
+            boolean moveOrNot = racingCar.moveOrNot(i);
+            Assertions.assertFalse(moveOrNot);
         }
+    }
+
+    @Test
+    void determineWinnerTest() {
+        List<String> racingCarNames = Arrays.asList("car1", "car2", "car3");
+        RacingCars racingCars = new RacingCars(racingCarNames);
+
+        racingCars.getRacingCars().get(0).getNumAndMove(9);
+        racingCars.getRacingCars().get(1).getNumAndMove(2);
+        racingCars.getRacingCars().get(2).getNumAndMove(8);
+
+        List<RacingCar> winners = racingCars.getWinners();
+
+        Assertions.assertEquals(2, winners.size());
+        Assertions.assertEquals("car1", winners.get(0).getName());
+        Assertions.assertEquals("car3", winners.get(1).getName());
     }
 }

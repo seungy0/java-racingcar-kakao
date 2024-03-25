@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import model.RacingCar;
 import model.RacingCars;
 import view.RacingCarView;
@@ -21,14 +22,16 @@ public class RacingCarController {
 
         racingCarView.startGameRound();
 
-        for (int i = 0; i < trial; i++) {
-            playGameRound(racingCarList);
-        }
+        IntStream.range(0, trial)
+            .mapToObj(i -> racingCarList)
+            .forEach(this::playGameRound);
+
+        racingCarView.displayWinners(racingCars.getWinners());
     }
 
     private void playGameRound(List<RacingCar> racingCarList) {
         for (RacingCar racingCar : racingCarList) {
-            racingCar.getNumAndMove();
+            racingCar.move();
         }
         racingCarView.displayRacingCarStatus(racingCarList);
     }
