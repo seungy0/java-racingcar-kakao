@@ -12,4 +12,9 @@ public class RacingCarController {
         this.racingCarView = racingCarView;
         this.racingCars = new RacingCars(racingCarView.getCarNames());
     }
+
+    public void playGame() {
+        int trial = racingCarView.getTrial();
+
+    }
 }
