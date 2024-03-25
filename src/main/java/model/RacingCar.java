@@ -5,6 +5,7 @@ import java.util.Random;
 public class RacingCar {
 
     private String name;
+    private int moves = 0;
 
     public RacingCar() {
     }
@@ -13,13 +14,23 @@ public class RacingCar {
         this.name = name;
     }
 
-    public boolean getNumAndMove() {
+    public void getNumAndMove() {
         int num = getRandomNum();
-        return move(num);
+        if (move(num)) {
+            this.moves++;
+        }
     }
 
     public boolean move(int num) {
         return num >= 4 && num <= 9;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoves() {
+        return moves;
     }
 
     private static int getRandomNum() {

@@ -2,6 +2,7 @@ package view;
 
 import java.util.List;
 import java.util.Scanner;
+import model.RacingCar;
 
 public class RacingCarView {
 
@@ -19,5 +20,15 @@ public class RacingCarView {
     public int getTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(sc.nextLine());
+    }
+
+    public void displayRacingCarStatus(List<RacingCar> racingCarList) {
+        racingCarList.forEach(racingCar -> System.out.println(
+            racingCar.getName() + " : " + "-".repeat(racingCar.getMoves())));
+        System.out.println();
+    }
+
+    public void startGameRound() {
+        System.out.println("\n실행 결과");
     }
 }

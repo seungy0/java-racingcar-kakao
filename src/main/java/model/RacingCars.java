@@ -12,4 +12,8 @@ public class RacingCars {
             .map(RacingCar::new)
             .collect(Collectors.toList());
     }
+
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
 }
