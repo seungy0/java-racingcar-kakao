@@ -1,5 +1,6 @@
 package view;
 
+import exception.InValidInputException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -15,7 +16,19 @@ public class RacingCarView {
 
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).");
-        return List.of(sc.nextLine().split(","));
+        List<String> carNames = List.of(sc.nextLine().split(","));
+
+        for (String carName : carNames) {
+            checkCarname(carName);
+        }
+
+        return carNames;
+    }
+
+    private static void checkCarname(String carName) {
+        if (carName.length() > 5) {
+            throw new InValidInputException("[ERROR] 이름은 5자 이하만 가능하다.");
+        }
     }
 
     public int getTrial() {

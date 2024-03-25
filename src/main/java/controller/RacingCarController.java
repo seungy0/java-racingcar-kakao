@@ -1,7 +1,7 @@
 package controller;
 
+import exception.InValidInputException;
 import java.util.List;
-import java.util.stream.IntStream;
 import model.RacingCar;
 import model.RacingCars;
 import view.RacingCarView;
@@ -13,7 +13,7 @@ public class RacingCarController {
 
     public RacingCarController(RacingCarView racingCarView) {
         this.racingCarView = racingCarView;
-        this.racingCars = new RacingCars(racingCarView.getCarNames());
+        this.racingCars = new RacingCars(getCarNames());
     }
 
     public void playGame() {
@@ -22,9 +22,9 @@ public class RacingCarController {
 
         racingCarView.startGameRound();
 
-        IntStream.range(0, trial)
-            .mapToObj(i -> racingCarList)
-            .forEach(this::playGameRound);
+        for (int i = 0; i < trial; i++) {
+            playGameRound(racingCarList);
+        }
 
         racingCarView.displayWinners(racingCars.getWinners());
     }
@@ -34,5 +34,16 @@ public class RacingCarController {
             racingCar.move();
         }
         racingCarView.displayRacingCarStatus(racingCarList);
+    }
+
+    private List<String> getCarNames() {
+        // TODO: indent 줄이기
+        while (true) {
+            try {
+                return racingCarView.getCarNames();
+            } catch (InValidInputException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
