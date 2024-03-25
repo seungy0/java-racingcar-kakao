@@ -1,6 +1,17 @@
+package model;
+
 import java.util.Random;
 
 public class RacingCar {
+
+    private String name;
+
+    public RacingCar() {
+    }
+
+    public RacingCar(String name) {
+        this.name = name;
+    }
 
     public boolean getNumAndMove() {
         int num = getRandomNum();
