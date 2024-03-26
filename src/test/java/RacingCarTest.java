@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
-import model.RacingCar;
-import model.RacingCars;
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

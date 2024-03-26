@@ -1,4 +1,4 @@
-package exception;
+package racingcar.exception;
 
 public class InValidInputException extends RuntimeException {
 
