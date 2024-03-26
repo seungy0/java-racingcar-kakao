@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class Delimiter {
     List<String> delimiters;
 
     public Delimiter() {
-        delimiters = Arrays.asList(",", ":");
+        delimiters = new ArrayList<>(Arrays.asList(",", ":"));
     }
 
     public List<String> split(String s) {
@@ -17,5 +18,9 @@ public class Delimiter {
 
     private String makeRegex() {
         return "[" + String.join("", delimiters) + "]";
+    }
+
+    public void addCustomDelimiter(String newDelimiter) {
+        delimiters.add(newDelimiter);
     }
 }
