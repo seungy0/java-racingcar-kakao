@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import racingcar.exception.InValidInputException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import racingcar.exception.InValidInputException;
 import racingcar.model.RacingCar;
 
 public class RacingCarView {

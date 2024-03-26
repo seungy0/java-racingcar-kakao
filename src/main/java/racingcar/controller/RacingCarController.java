@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.exception.InValidInputException;
 import java.util.List;
+import racingcar.exception.InValidInputException;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.view.RacingCarView;

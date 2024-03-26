@@ -1,10 +1,10 @@
 import java.util.Arrays;
 import java.util.List;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCars;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
 
 public class RacingCarTest {
 
