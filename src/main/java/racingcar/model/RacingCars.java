@@ -17,7 +17,7 @@ public class RacingCars {
         return racingCars;
     }
 
-    public List<RacingCar> getWinners() {
+    public List<RacingCar> findWinners() {
         int maxMoves = racingCars.stream()
             .mapToInt(RacingCar::getMoves)
             .max()

@@ -14,24 +14,24 @@ public class RacingCarView {
         sc = new Scanner(System.in);
     }
 
-    public List<String> getCarNames() {
+    public List<String> requestCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).");
         List<String> carNames = List.of(sc.nextLine().split(","));
 
         for (String carName : carNames) {
-            checkCarname(carName);
+            checkCarName(carName);
         }
 
         return carNames;
     }
 
-    private static void checkCarname(String carName) {
+    private static void checkCarName(String carName) {
         if (carName.length() > 5) {
             throw new InValidInputException("[ERROR] 이름은 5자 이하만 가능하다.");
         }
     }
 
-    public int getTrial() {
+    public int requestTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(sc.nextLine());
     }

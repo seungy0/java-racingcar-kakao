@@ -40,7 +40,7 @@ public class RacingCarTest {
         racingCars.getRacingCars().get(1).getNumAndMove(2);
         racingCars.getRacingCars().get(2).getNumAndMove(8);
 
-        List<RacingCar> winners = racingCars.getWinners();
+        List<RacingCar> winners = racingCars.findWinners();
 
         Assertions.assertEquals(2, winners.size());
         Assertions.assertEquals("car1", winners.get(0).getName());

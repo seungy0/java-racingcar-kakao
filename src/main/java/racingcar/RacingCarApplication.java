@@ -10,7 +10,5 @@ public class RacingCarApplication {
         RacingCarController racingCarController = new RacingCarController(racingCarView);
 
         racingCarController.playGame();
-
-
     }
 }

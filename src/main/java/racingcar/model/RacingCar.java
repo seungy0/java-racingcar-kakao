@@ -21,7 +21,7 @@ public class RacingCar {
     }
 
     public void move() {
-        int num = getRandomNum();
+        int num = makeRandomNum();
         getNumAndMove(num);
     }
 
@@ -37,7 +37,7 @@ public class RacingCar {
         return moves;
     }
 
-    private static int getRandomNum() {
+    private static int makeRandomNum() {
         Random random = new Random();
         return random.nextInt(9);
     }

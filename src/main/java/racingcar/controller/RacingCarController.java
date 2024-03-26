@@ -13,34 +13,33 @@ public class RacingCarController {
 
     public RacingCarController(RacingCarView racingCarView) {
         this.racingCarView = racingCarView;
-        this.racingCars = new RacingCars(getCarNames());
+        this.racingCars = new RacingCars(requestCarNames());
     }
 
     public void playGame() {
-        int trial = racingCarView.getTrial();
-        List<RacingCar> racingCarList = racingCars.getRacingCars();
+        int trial = racingCarView.requestTrial();
+        List<RacingCar> participants = racingCars.getRacingCars();
 
         racingCarView.startGameRound();
 
         for (int i = 0; i < trial; i++) {
-            playGameRound(racingCarList);
+            playGameRound(participants);
         }
 
-        racingCarView.displayWinners(racingCars.getWinners());
+        racingCarView.displayWinners(racingCars.findWinners());
     }
 
-    private void playGameRound(List<RacingCar> racingCarList) {
-        for (RacingCar racingCar : racingCarList) {
+    private void playGameRound(List<RacingCar> participants) {
+        for (RacingCar racingCar : participants) {
             racingCar.move();
         }
-        racingCarView.displayRacingCarStatus(racingCarList);
+        racingCarView.displayRacingCarStatus(participants);
     }
 
-    private List<String> getCarNames() {
-        // TODO: indent 줄이기
+    private List<String> requestCarNames() {
         while (true) {
             try {
-                return racingCarView.getCarNames();
+                return racingCarView.requestCarNames();
             } catch (InValidInputException e) {
                 System.out.println(e.getMessage());
             }
