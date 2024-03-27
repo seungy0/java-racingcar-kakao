@@ -25,12 +25,6 @@ public class RacingCarView {
         return carNames;
     }
 
-    private static void checkCarName(String carName) {
-        if (carName.length() > 5) {
-            throw new InValidInputException("[ERROR] 이름은 5자 이하만 가능하다.");
-        }
-    }
-
     public int requestTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(sc.nextLine());
@@ -51,5 +45,11 @@ public class RacingCarView {
             .map(RacingCar::getName)
             .collect(Collectors.joining(", "));
         System.out.println(winners + "가 최종 우승했습니다.");
+    }
+
+    private static void checkCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new InValidInputException("[ERROR] 이름은 5자 이하만 가능하다.");
+        }
     }
 }
