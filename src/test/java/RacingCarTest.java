@@ -36,9 +36,9 @@ public class RacingCarTest {
         List<String> racingCarNames = Arrays.asList("car1", "car2", "car3");
         RacingCars racingCars = new RacingCars(racingCarNames);
 
-        racingCars.getRacingCars().get(0).getNumAndMove(9);
-        racingCars.getRacingCars().get(1).getNumAndMove(2);
-        racingCars.getRacingCars().get(2).getNumAndMove(8);
+        racingCars.getRacingCars().get(0).moveIfNumBig(9);
+        racingCars.getRacingCars().get(1).moveIfNumBig(2);
+        racingCars.getRacingCars().get(2).moveIfNumBig(8);
 
         List<RacingCar> winners = racingCars.findWinners();
 

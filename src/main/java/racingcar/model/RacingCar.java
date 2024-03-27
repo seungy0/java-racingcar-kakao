@@ -14,7 +14,7 @@ public class RacingCar {
         this.name = name;
     }
 
-    public void getNumAndMove(int num) {
+    public void moveIfNumBig(int num) {
         if (moveOrNot(num)) {
             this.position++;
         }
@@ -22,7 +22,7 @@ public class RacingCar {
 
     public void move() {
         int num = makeRandomNum();
-        getNumAndMove(num);
+        moveIfNumBig(num);
     }
 
     public boolean moveOrNot(int num) {
