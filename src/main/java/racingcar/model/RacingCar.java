@@ -8,7 +8,7 @@ public class RacingCar {
     private static final int MOVE_MAX_LIMIT = 9;
 
     private final String name;
-    private int moves = 0;
+    private int position = 0;
 
     public RacingCar(String name) {
         this.name = name;
@@ -16,7 +16,7 @@ public class RacingCar {
 
     public void getNumAndMove(int num) {
         if (moveOrNot(num)) {
-            this.moves++;
+            this.position++;
         }
     }
 
@@ -33,8 +33,8 @@ public class RacingCar {
         return name;
     }
 
-    public int getMoves() {
-        return moves;
+    public int getPosition() {
+        return position;
     }
 
     private static int makeRandomNum() {

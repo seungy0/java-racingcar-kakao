@@ -38,7 +38,7 @@ public class RacingCarView {
 
     public void displayRacingCarStatus(List<RacingCar> racingCarList) {
         racingCarList.forEach(racingCar -> System.out.println(
-            racingCar.getName() + " : " + "-".repeat(racingCar.getMoves())));
+            racingCar.getName() + " : " + "-".repeat(racingCar.getPosition())));
         System.out.println();
     }
 

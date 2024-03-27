@@ -19,12 +19,12 @@ public class RacingCars {
 
     public List<RacingCar> findWinners() {
         int maxMoves = racingCars.stream()
-            .mapToInt(RacingCar::getMoves)
+            .mapToInt(RacingCar::getPosition)
             .max()
             .orElse(0);
 
         return racingCars.stream()
-            .filter(car -> car.getMoves() == maxMoves)
+            .filter(car -> car.getPosition() == maxMoves)
             .collect(Collectors.toList());
     }
 }
