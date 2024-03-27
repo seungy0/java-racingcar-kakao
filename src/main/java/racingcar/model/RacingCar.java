@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class RacingCar {
 
+    private static final int MOVE_MIN_LIMIT = 4;
+    private static final int MOVE_MAX_LIMIT = 9;
+
     private final String name;
     private int moves = 0;
 
@@ -23,7 +26,7 @@ public class RacingCar {
     }
 
     public boolean moveOrNot(int num) {
-        return num >= 4 && num <= 9;
+        return MOVE_MIN_LIMIT <= num && num <= MOVE_MAX_LIMIT;
     }
 
     public String getName() {
