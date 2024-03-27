@@ -4,11 +4,8 @@ import java.util.Random;
 
 public class RacingCar {
 
-    private String name;
+    private final String name;
     private int moves = 0;
-
-    public RacingCar() {
-    }
 
     public RacingCar(String name) {
         this.name = name;
