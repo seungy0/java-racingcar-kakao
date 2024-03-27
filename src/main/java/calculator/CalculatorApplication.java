@@ -5,13 +5,18 @@ import java.util.Scanner;
 public class CalculatorApplication {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CalculatorController calculatorController = new CalculatorController();
+        try (Scanner scanner = new Scanner(System.in)) {
+            InputProcessor inputProcessor = new InputProcessor();
+            Calculator calculator = new Calculator();
 
-        System.out.println("Enter the input: ");
-        String input = scanner.nextLine();
-        System.out.println("Result: " + calculatorController.add(input));
+            System.out.println("Enter the input: ");
+            String input = scanner.nextLine();
 
-        scanner.close();
+            inputProcessor.validateInput(input);
+            System.out.println(
+                "Result: " + calculator.add(inputProcessor.parseCustomDelimiter(input).orElse("")));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
