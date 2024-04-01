@@ -29,16 +29,16 @@ public class RacingCar {
         return MOVE_MIN_LIMIT <= num && num <= MOVE_MAX_LIMIT;
     }
 
+    private static int makeRandomNum() {
+        Random random = new Random();
+        return random.nextInt(9);
+    }
+
     public String getName() {
         return name;
     }
 
     public int getPosition() {
         return position;
-    }
-
-    private static int makeRandomNum() {
-        Random random = new Random();
-        return random.nextInt(9);
     }
 }
