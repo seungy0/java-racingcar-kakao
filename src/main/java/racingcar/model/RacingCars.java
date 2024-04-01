@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class RacingCars {
 
-    List<RacingCar> racingCars;
+    private final List<RacingCar> racingCars;
 
     public RacingCars(List<String> carNames) {
         this.racingCars = carNames.stream()

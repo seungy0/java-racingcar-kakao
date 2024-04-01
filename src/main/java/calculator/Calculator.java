@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 public class Calculator {
 
     private final Delimiters delimiters;
-
-    public InputProcessor inputProcessor;
+    private final InputProcessor inputProcessor;
 
     public Calculator() {
         this.delimiters = new Delimiters();
@@ -22,6 +21,10 @@ public class Calculator {
         return numbers.stream()
             .mapToInt(Integer::intValue)
             .sum();
+    }
+
+    public InputProcessor getInputProcessor() {
+        return inputProcessor;
     }
 
     private List<Integer> parseNumber(String input) {

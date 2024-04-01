@@ -8,8 +8,8 @@ import racingcar.view.RacingCarView;
 
 public class RacingCarController {
 
-    RacingCars racingCars;
-    RacingCarView racingCarView;
+    private final RacingCars racingCars;
+    private final RacingCarView racingCarView;
 
     public RacingCarController(RacingCarView racingCarView) {
         this.racingCarView = racingCarView;

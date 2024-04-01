@@ -8,7 +8,7 @@ import racingcar.model.RacingCar;
 
 public class RacingCarView {
 
-    Scanner sc;
+    private final Scanner sc;
 
     public RacingCarView() {
         sc = new Scanner(System.in);

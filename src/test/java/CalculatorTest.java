@@ -38,9 +38,9 @@ public class CalculatorTest {
 
     @Test
     void parseDelimiterTest() {
-        String customDelimiter1 = calculator.inputProcessor.parseCustomDelimiter("//;\n1,2:3")
+        String customDelimiter1 = calculator.getInputProcessor().parseCustomDelimiter("//;\n1,2:3")
             .orElse("fail");
-        String customDelimiter2 = calculator.inputProcessor.parseCustomDelimiter("/;\n1,2:3")
+        String customDelimiter2 = calculator.getInputProcessor().parseCustomDelimiter("/;\n1,2:3")
             .orElse("fail");
 
         Assertions.assertEquals(";", customDelimiter1);
@@ -49,7 +49,7 @@ public class CalculatorTest {
 
     @Test
     void parseAndAddDelimiter() {
-        String customDelimiter = calculator.inputProcessor.parseCustomDelimiter("//;\n1,2:3")
+        String customDelimiter = calculator.getInputProcessor().parseCustomDelimiter("//;\n1,2:3")
             .orElse("fail");
         delimiters.addCustomDelimiter(customDelimiter);
 
@@ -62,16 +62,16 @@ public class CalculatorTest {
 
     @Test
     void validateInputGoodCaseTest() {
-        calculator.inputProcessor.validateInput("1:1:1");
-        calculator.inputProcessor.validateInput("//;\n1:2;3");
+        calculator.getInputProcessor().validateInput("1:1:1");
+        calculator.getInputProcessor().validateInput("//;\n1:2;3");
     }
 
     @Test
     void validateInputBadCaseTest() {
         Assertions.assertThrows(IllegalArgumentException.class,
-            () -> calculator.inputProcessor.validateInput("000:1:1"));
+            () -> calculator.getInputProcessor().validateInput("000:1:1"));
         Assertions.assertThrows(IllegalArgumentException.class,
-            () -> calculator.inputProcessor.validateInput("//;\n1:1:1-"));
+            () -> calculator.getInputProcessor().validateInput("//;\n1:1:1-"));
     }
 
     @Test
