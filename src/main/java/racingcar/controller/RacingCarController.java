@@ -8,15 +8,14 @@ import racingcar.view.RacingCarView;
 
 public class RacingCarController {
 
-    private final RacingCars racingCars;
     private final RacingCarView racingCarView;
 
     public RacingCarController(RacingCarView racingCarView) {
         this.racingCarView = racingCarView;
-        this.racingCars = new RacingCars(requestCarNames());
     }
 
     public void playGame() {
+        RacingCars racingCars = new RacingCars(requestCarNames());
         int trial = racingCarView.requestTrial();
         List<RacingCar> participants = racingCars.getRacingCars();
 
