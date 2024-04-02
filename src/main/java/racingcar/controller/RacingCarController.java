@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.exception.InValidInputException;
 import racingcar.model.RacingCar;
-import racingcar.model.RacingCars;
+import racingcar.model.RacingGame;
 import racingcar.view.RacingCarView;
 
 public class RacingCarController {
@@ -15,17 +15,20 @@ public class RacingCarController {
     }
 
     public void playGame() {
-        RacingCars racingCars = new RacingCars(requestCarNames());
+        List<String > carNames = requestCarNames();
         int trial = racingCarView.requestTrial();
-        List<RacingCar> participants = racingCars.getRacingCars();
+        RacingGame racingGame = new RacingGame(carNames, trial);
+
+        List<RacingCar> participants = racingGame.getRacingCars();
 
         racingCarView.startGameRound();
 
-        for (int i = 0; i < trial; i++) {
-            playGameRound(participants);
+        while (!racingGame.isGameEnd()) {
+            racingGame.playGameRound();
+            racingCarView.displayRacingCarStatus(racingGame.getRacingCars());
         }
 
-        racingCarView.displayWinners(racingCars.findWinners());
+        racingCarView.displayWinners(racingGame.findWinners());
     }
 
     private void playGameRound(List<RacingCar> participants) {

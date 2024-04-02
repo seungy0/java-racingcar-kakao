@@ -3,18 +3,17 @@ package racingcar.model;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RacingCars {
+public class RacingGame {
 
     private final List<RacingCar> racingCars;
+    private final int trial;
+    private int round = 0;
 
-    public RacingCars(List<String> carNames) {
+    public RacingGame(List<String> carNames, int trial) {
         this.racingCars = carNames.stream()
             .map(RacingCar::new)
             .collect(Collectors.toList());
-    }
-
-    public List<RacingCar> getRacingCars() {
-        return racingCars;
+        this.trial = trial;
     }
 
     public List<RacingCar> findWinners() {
@@ -26,5 +25,18 @@ public class RacingCars {
         return racingCars.stream()
             .filter(car -> car.getPosition() == maxMoves)
             .collect(Collectors.toList());
+    }
+
+    public void playGameRound() {
+        racingCars.forEach(RacingCar::move);
+        round++;
+    }
+
+    public boolean isGameEnd() {
+        return round == trial;
+    }
+
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
     }
 }
